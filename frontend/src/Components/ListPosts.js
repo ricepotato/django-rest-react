@@ -14,7 +14,7 @@ class ListPosts extends React.Component {
   }
 
   deletePost = (id) => {
-    this.props.deletePost(id, this, info);
+    this.props.deletePost(id, this.info);
   };
 
   info() {
@@ -52,5 +52,5 @@ class ListPosts extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ posts: state.posts });
-const mapDispatchToProps = { getPosts, deletePosts };
+const mapDispatchToProps = { getPosts, deletePost };
 export default connect(mapStateToProps, mapDispatchToProps)(ListPosts);

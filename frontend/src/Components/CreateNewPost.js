@@ -23,7 +23,7 @@ class CreateNewPost extends React.Component {
       wrapperCol: { span: 12 },
     };
 
-    const validateMessage = {
+    const validateMessages = {
       required: "${label} is required!",
       types: {
         email: "${label} is not validate email!",
@@ -35,7 +35,7 @@ class CreateNewPost extends React.Component {
     };
 
     return (
-      <From
+      <Form
         {...layout}
         name="nest-messages"
         onFinish={this.onFinish.bind(this)}
@@ -55,7 +55,7 @@ class CreateNewPost extends React.Component {
             Submit
           </Button>
         </Form.Item>
-      </From>
+      </Form>
     );
   }
 }

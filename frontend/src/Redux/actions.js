@@ -18,7 +18,7 @@ export const getPosts = () => {
 
 export const deletePost = (id, cb) => {
   return (dispatch) => {
-    dispatch({ type: Types.POSTS_LOADING, payload });
+    dispatch({ type: Types.POSTS_LOADING, payload: true });
     axios
       .delete(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/${id}`)
       .then((response) => {
