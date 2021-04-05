@@ -41,11 +41,9 @@ class CreateNewPost extends React.Component {
         onFinish={this.onFinish.bind(this)}
         validateMessages={validateMessages}
       >
-        <Form.Item
-          name="title"
-          label="Title"
-          rules={[{ required: true }]}
-        ></Form.Item>
+        <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
         <Form.Item name="content" label="Content" rules={[{ required: true }]}>
           <Input.TextArea></Input.TextArea>
         </Form.Item>

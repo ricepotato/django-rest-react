@@ -5,7 +5,7 @@ export const getPosts = () => {
   return (dispatch) => {
     dispatch({ type: Types.POSTS_LOADING, payload: true });
     axios
-      .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts`)
+      .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/articles`)
       .then((response) => {
         dispatch({ type: Types.GET_POSTS, payload: response.data });
       })
@@ -20,7 +20,7 @@ export const deletePost = (id, cb) => {
   return (dispatch) => {
     dispatch({ type: Types.POSTS_LOADING, payload: true });
     axios
-      .delete(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/${id}`)
+      .delete(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/articles/${id}`)
       .then((response) => {
         dispatch({ type: Types.DELETE_POST, payload: id });
         cb();
@@ -34,7 +34,7 @@ export const deletePost = (id, cb) => {
 export const createPost = (data, cb) => {
   return (dispatch) => {
     axios
-      .post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/`, data)
+      .post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/articles/`, data)
       .then((response) => {
         console.log(response);
         dispatch({ type: Types.CREATE_POST, payload: response.data });
