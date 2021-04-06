@@ -7,7 +7,7 @@ import { Form, Input, message, Button } from "antd";
 class CreateNewPost extends React.Component {
   onFinish(values) {
     console.log(values);
-    this.props.createPost(values, this.info());
+    this.props.createPost(values, this.info);
   }
 
   info() {
