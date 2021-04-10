@@ -5,24 +5,23 @@ services:
     build:
       context: ./backend
       args:
-        DJANGO_ALLOW_HOSTS: http://localhost
+        DJANGO_ALLOW_HOSTS: localhost
         DJANGO_SECRET_KEY: 7770snrgh$lh(&e8lwrfduv7@-91a%=0v#$sbuknl(d@^=k1-^
-        # DJANGO_CORS_ORIGIN_WHITELIST: http://localhost
-    command: gunicorn backend.wsgi --bind 0.0.0.0:8000
+    command: gunicorn config.wsgi --bind 0.0.0.0:8000
     ports:
       - 8000:8000
   frontend:
     build:
       context: ./frontend
       args:
-        API_URL: http://backend:8000
+        API_URL: http://localhost:8000
     volumes:
       - build_folder:/frontend/build
   nginx:
     image: nginx:latest
     hostname: nginx
     ports:
-      - 80:8080
+      - 8080:8080
     volumes:
       - ./webserver/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
       - build_folder:/var/www/frontend
